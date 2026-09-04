@@ -1,23 +1,29 @@
 {
   "runs": [
     {
-      "run_ts": "2026-09-05_PILOT",
-      "started_at": "2026-09-05T00:48:12.971499",
+      "run_ts": "2026-09-05_0134",
+      "started_at": "2026-09-05T02:09:13.000167",
       "categories": [
         "running_men",
         "running_women",
         "basketball_men",
-        "basketball_women"
+        "basketball_women",
+        "casual_men",
+        "casual_women",
+        "football_men",
+        "football_women",
+        "walking_men",
+        "walking_women"
       ],
       "phases": {
-        "scrape": "success (16 sub-categories, price-filtered + popularity-sorted)",
+        "scrape": "success (38 sub-categories across 5 categories x gender)",
         "features": "success (colourways collapsed to models)",
-        "scoring": "success (thin sub-categories flagged)",
-        "review_mining": "success (5 opportunity sub-categories)",
+        "scoring": "success (12 opportunities, thin bands flagged)",
+        "review_mining": "success (top 6 opportunities)",
         "review_analysis": "authored by Claude from pooled review text",
-        "ad_landscape": "success (category-level, unfiltered pass)"
+        "ad_landscape": "success (category-level)"
       },
-      "completed_at": "2026-09-05T01:11:55.285034"
+      "completed_at": "2026-09-05T02:09:13.000203"
     }
   ]
 }

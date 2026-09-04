@@ -3,6 +3,7 @@
 import json
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
@@ -36,18 +37,29 @@ def pretty_subcategory(category: str, tier: str) -> str:
     return f"{pretty_category(category)} · {tier}"
 
 
-def latest_run_ts() -> str:
-    """Newest run that produced a scores file (works even if run_log is missing).
+def _parse_run_ts(run_ts: str):
+    """Run ids are timestamps (2026-09-05_0134); anything else is a hand-made label
+    and is treated as oldest so it can never win against a real run."""
+    try:
+        return datetime.strptime(run_ts, "%Y-%m-%d_%H%M")
+    except (ValueError, TypeError):
+        return datetime.min
 
-    Ordered by file modification time, not filename: run ids are not all the same shape
-    (a label like `2026-09-05_PILOT` sorts after `2026-09-05_0143` alphabetically even
-    though it is older), so a lexicographic sort can silently serve stale data.
+
+def latest_run_ts() -> str:
+    """Newest run that has a scores file on disk.
+
+    Ordered by the timestamp encoded in the run id, NOT by file mtime and NOT
+    alphabetically. mtime is useless once the repo is deployed — a git clone stamps
+    every file with the same checkout time — and a lexicographic sort puts a label like
+    `2026-09-05_PILOT` above the newer `2026-09-05_0134`. Both would silently serve
+    stale data to anyone opening the hosted app.
     """
-    files = list(SCORES.glob("scores_*.json"))
-    if not files:
+    ids = [p.name.replace("scores_", "").replace(".json", "")
+           for p in SCORES.glob("scores_*.json")]
+    if not ids:
         return None
-    newest = max(files, key=lambda p: p.stat().st_mtime)
-    return newest.name.replace("scores_", "").replace(".json", "")
+    return max(ids, key=_parse_run_ts)
 
 
 def load_scores(run_ts: str) -> dict:
@@ -83,10 +95,12 @@ def load_review_analysis(run_ts: str) -> dict:
     if exact.exists():
         with open(exact, encoding="utf-8") as f:
             return json.load(f)
-    candidates = sorted(REVIEWS.glob("analysis_*.json"))
+    candidates = list(REVIEWS.glob("analysis_*.json"))
     if not candidates:
         return {}
-    with open(candidates[-1], encoding="utf-8") as f:
+    newest = max(candidates,
+                 key=lambda p: _parse_run_ts(p.name.replace("analysis_", "").replace(".json", "")))
+    with open(newest, encoding="utf-8") as f:
         return json.load(f)
 
 
