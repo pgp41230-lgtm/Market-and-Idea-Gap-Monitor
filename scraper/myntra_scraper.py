@@ -42,23 +42,19 @@ OPEN_ENDED_MAX = 99999
 DELAY_RANGE = (2.0, 5.0)
 MAX_RETRIES = 3
 
+# Scope: five categories, each split by gender. Training/Gym, Hiking/Outdoor and
+# Badminton were dropped from the original brief's eight at the user's request.
 CATEGORIES = {
     "running_men": "men running shoes",
     "running_women": "women running shoes",
     "basketball_men": "men basketball shoes",
     "basketball_women": "women basketball shoes",
-    "training_men": "men training shoes",
-    "training_women": "women training shoes",
     "casual_men": "men casual sneakers",
     "casual_women": "women casual sneakers",
     "football_men": "men football shoes",
     "football_women": "women football shoes",
-    "hiking_men": "men hiking shoes",
-    "hiking_women": "women hiking shoes",
     "walking_men": "men walking shoes",
     "walking_women": "women walking shoes",
-    "badminton_men": "men badminton shoes",
-    "badminton_women": "women badminton shoes",
 }
 
 PILOT_CATEGORIES = {
@@ -221,20 +217,27 @@ def scrape_subcategory(page: Page, category: str, search_term: str, tier: dict) 
     products = []
     total_count = None
 
+    empty = {
+        "category": category, "price_tier": label,
+        "price_min": tier["min"], "price_max": tier["max"],
+        "total_count_reported": 0, "pages_scraped": 0, "products": [],
+    }
+
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=30000)
             page.wait_for_selector("li.product-base", timeout=20000)
             break
-        except PWTimeoutError:
+        except Exception as e:
+            # Catch every navigation failure, not just timeouts: a transient DNS blip
+            # raises ERR_NAME_NOT_RESOLVED, which is a plain playwright Error and used
+            # to abort the whole category. Back off longer so a brief network drop has
+            # time to recover.
             if attempt == MAX_RETRIES:
-                print(f"      no results / timed out after {MAX_RETRIES} tries")
-                return {
-                    "category": category, "price_tier": label,
-                    "price_min": tier["min"], "price_max": tier["max"],
-                    "total_count_reported": 0, "pages_scraped": 0, "products": [],
-                }
-            time.sleep(3 * attempt)
+                print(f"      giving up on this band after {MAX_RETRIES} tries: "
+                      f"{str(e).splitlines()[0][:110]}")
+                return empty
+            time.sleep(5 * attempt)
 
     total_count = _get_total_count(page)
 
@@ -310,9 +313,22 @@ def scrape_category(page: Page, category: str, search_term: str, tiers: list) ->
     print(f"  [scrape] {category} ({search_term})")
     subcategories = []
     for tier in tiers:
-        subcategories.append(scrape_subcategory(page, category, search_term, tier))
+        # isolate each band: one failing price band should not cost us the other three
+        try:
+            subcategories.append(scrape_subcategory(page, category, search_term, tier))
+        except Exception as e:
+            print(f"      [ERROR] {category}/{tier['label']}: {str(e).splitlines()[0][:110]}")
+            subcategories.append({
+                "category": category, "price_tier": tier["label"],
+                "price_min": tier["min"], "price_max": tier["max"],
+                "total_count_reported": 0, "pages_scraped": 0, "products": [],
+            })
         _delay()
-    ad_landscape = scrape_ad_landscape(page, category, search_term)
+    try:
+        ad_landscape = scrape_ad_landscape(page, category, search_term)
+    except Exception as e:
+        print(f"      [ERROR] {category} ad landscape: {str(e).splitlines()[0][:110]}")
+        ad_landscape = {"brands": [], "listings_seen": 0, "ad_listings": 0}
     _delay()
     return {
         "category": category,
