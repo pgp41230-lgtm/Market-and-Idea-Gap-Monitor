@@ -1,0 +1,118 @@
+{
+  "_note": "Pros/cons written by Claude from the pooled Myntra review text captured in raw_reviews_<run>.json for the same run. Every point is grounded in what reviewers actually wrote; no external LLM API is involved.",
+
+  "running_men|Mid-Range": {
+    "top_pros": [
+      "Lightweight build is the single most repeated compliment — buyers wear them for gym, road runs and full days on their feet without fatigue",
+      "Cushioning is described as responsive rather than mushy, giving noticeable energy return on road runs",
+      "True to size and comfortable straight out of the box, with no break-in period needed",
+      "Premium finish (leather and mesh uppers) means the same pair works for training and casual wear",
+      "Breathable uppers that stay cool, and on the ASICS dry quickly after wet runs"
+    ],
+    "top_cons": [
+      "Packaging arrives damaged or poor even when buyers are happy with the shoe itself",
+      "The ASICS Noosa Tri 16 is a specialist fast-run shoe — reviewers say it resists slow jogging and pushes you forward",
+      "Recurring anxiety about authenticity when buying premium brands online"
+    ],
+    "focal_pros": [
+      "The Softride/SoftFoam+ ride is described as genuinely bouncy, and repeat buyers rate it more comfortable than the Skechers Arch Fit they switched from",
+      "Strong arch support — reviewers report 8+ hours on their feet without fatigue",
+      "Light enough to help rather than hinder during cardio and running",
+      "Trendy styling at a price buyers consider a bargain"
+    ],
+    "focal_cons": [
+      "The midsole is judged too soft, putting extra pressure on the legs over long walks or runs",
+      "Unusual vertical creasing across the toe box, which buyers flag as unlike the horizontal creasing they expect",
+      "Laces run noticeably short",
+      "Reviewers position it for walking, casual wear and light jogging — explicitly not for intense running or high-performance training, with breathability called out as a weak point"
+    ]
+  },
+
+  "basketball_men|Entry-Level": {
+    "top_pros": [
+      "Traction on outdoor Indian cement courts is the standout strength, called excellent by multiple reviewers",
+      "High and mid-top silhouettes deliver real ankle support for court play",
+      "Priced far below Nike and Adidas, and widely seen as strong value for beginners and intermediate players",
+      "Breathable mesh keeps feet cool, and the shoes are comfortable enough to wear casually all day",
+      "Durability can be excellent — one HRX buyer reports 1.5 years of hard use still holding up"
+    ],
+    "top_cons": [
+      "A severe durability failure on the Red Tape pair: lace straps broke within two practice sessions, the shoe tore at the ankle and yellowed at the toe",
+      "Cushioning is below average for genuine basketball — acceptable for beginners but not for serious play",
+      "Visible glue at the joints and inconsistent quality control, particularly on HRX",
+      "Sizing runs small — several reviewers advise ordering one size up",
+      "Noticeably heavier than ordinary trainers"
+    ],
+    "focal_pros": [],
+    "focal_cons": []
+  },
+
+  "running_women|Entry-Level": {
+    "top_pros": [
+      "Lightweight and cushioned enough to cover gym sessions, long walks, trekking and daily wear from one pair",
+      "Exceptional value — Lotto buyers say the cushioning matches shoes costing Rs 8,000-10,000",
+      "Versatile styling that reviewers pair with jeans, skirts, western outfits and office wear",
+      "The chunky sole adds height, which several buyers call out as a deliberate plus",
+      "Reliable grip and breathable mesh across all three products"
+    ],
+    "top_cons": [
+      "The chunky silhouette divides opinion — some find it too bulky and out of proportion with their legs",
+      "The added heel height is not to everyone's taste",
+      "White colourways mark easily and need constant care",
+      "The Lotto pair is considered a little heavy for actual running, better suited to gym and walking",
+      "Some units arrive with visible stains or marks on the upper"
+    ],
+    "focal_pros": [
+      "Comfortable from the first wear with no break-in time required",
+      "Very lightweight, with cushioning that holds up over long days — one reviewer confirms it after a full year of use",
+      "The clean all-white mesh upper reads as premium and sleek, working for both daily and casual wear",
+      "True to size with a fit reviewers consistently call perfect",
+      "Breathable enough for gym sessions and all-day wear"
+    ],
+    "focal_cons": [
+      "Sits flat — a shorter reviewer specifically wanted more heel height, which the chunky rivals in this band do provide",
+      "Praise is dominated by comfort and looks, with little evidence in the reviews of it being used for serious running"
+    ]
+  },
+
+  "running_women|Mid-Range": {
+    "top_pros": [
+      "The memory-foam and Goga Mat cushioning is described over and over as 'walking on a cloud' — it is the reason people buy",
+      "Genuine therapeutic benefit: reviewers with plantar fasciitis and heel pain report relief, and regular walkers buy them to protect their joints",
+      "Ultra-lightweight with a breathable engineered mesh upper",
+      "Arch support pitched just right — neither flat nor excessively high",
+      "Deep brand trust; many are repeat Skechers buyers who say the brand never disappoints"
+    ],
+    "top_cons": [
+      "Sizing runs large — multiple reviewers advise buying one size smaller than usual",
+      "Occasional cosmetic defects such as spots or marks on arrival"
+    ],
+    "focal_pros": [
+      "Responsive, bouncy midsole cushioning paired with grip reviewers call fantastic",
+      "Lightweight with a snug but not tight fit, and a breathable upper that stays cool through long workouts",
+      "Durable engineered upper, with reflective detailing that buyers noticed in low light",
+      "Seen as strong value, particularly when discounted"
+    ],
+    "focal_cons": [
+      "Positive feedback clusters around gym and indoor workouts rather than distance running",
+      "The upper is described as 'a kind of plastic engineered material', a mixed reaction next to the plush textile feel rivals are praised for"
+    ]
+  },
+
+  "running_men|Premium": {
+    "top_pros": [
+      "Max-cushion and ArchFit stability win this band — buyers cite excellent arch support over long wear",
+      "The ASICS GT-2000 13 delivers credible stability technology (FF Blast+, PureGEL, 3D Guidance) that overpronators say works, holding up over roughly 250 km",
+      "The Nike Free RN's sock-like knit and slip-on convenience is genuinely loved",
+      "Lightweight yet durable, and buyers who checked authenticity at a brand outlet confirmed the products are genuine"
+    ],
+    "top_cons": [
+      "The Nike Free RN's narrow, tapered toe box keeps feet under constant pressure — one reviewer preferred the older RN 11 and would not repurchase",
+      "Nike's knit upper attracts dust and discolours permanently, surviving washing",
+      "Energy return on the ASICS GT-2000 13 is rated only average against rivals such as the Nike Structure 26",
+      "Price is the recurring objection at this tier, and size availability gaps force returns"
+    ],
+    "focal_pros": [],
+    "focal_cons": []
+  }
+}

@@ -1,0 +1,144 @@
+"""Page 1 — Idea Gap Monitor: tiles, prioritisation matrix, ranked opportunities."""
+
+import pandas as pd
+import streamlit as st
+
+from components import (FOCAL, esc, fmt_int, fmt_pct, intensity_pill,
+                        render_opportunity_detail, tier_range)
+from data_loader import pretty_category
+from theme import C
+
+QUAD_COPY = {
+    "Opportunity": ("Grow here", "High demand, thin presence"),
+    "Defend":      ("Protect", "High demand, strong presence"),
+    "Deprioritise": ("Watch only", "Low demand, thin presence"),
+    "Maintain":    ("Hold", "Low demand, strong presence"),
+}
+
+
+def _cell_names(cells, quadrant):
+    names = []
+    for c in cells:
+        if c["quadrant"] != quadrant:
+            continue
+        label = f"{pretty_category(c['category'])} · {c['price_tier']}"
+        if c.get("is_thin"):
+            label += '  <span class="thin">thin data</span>'
+        names.append(label)
+    return sorted(names)
+
+
+def _qbox(cells, quadrant, hot=False):
+    title, sub = QUAD_COPY[quadrant]
+    names = _cell_names(cells, quadrant)
+    # names already carry a safe <span class="thin"> marker, so they are inserted as-is
+    body = ("".join(f"<li>{n}</li>" for n in names)
+            if names else '<div class="none">None in this run</div>')
+    inner = f"<ul>{body}</ul>" if names else body
+    return (f'<div class="qbox{" hot" if hot else ""}">'
+            f'<h5>{title}</h5><div class="qh">{sub} · {len(names)} sub-categories</div>'
+            f'{inner}</div>')
+
+
+@st.dialog("Opportunity detail", width="large")
+def _detail_dialog(cell, processed, reviews, analysis):
+    render_opportunity_detail(cell, processed, reviews, analysis, show_analytics_link=True)
+
+
+def render(scores, processed, reviews, analysis, stamp_html):
+    summary = scores["summary"]
+    cells = scores["cells"]
+
+    st.markdown(
+        f'<div class="ph"><h1>Idea Gap Monitor</h1>'
+        f'<p>Where {FOCAL} should grow, defend or leave alone across every '
+        f'category and price band on Myntra.</p></div>', unsafe_allow_html=True)
+    st.markdown(stamp_html, unsafe_allow_html=True)
+    st.markdown('<div style="height:18px"></div>', unsafe_allow_html=True)
+
+    # ---- tiles ----
+    t1, t2, t3, t4 = st.columns(4)
+    t1.markdown(f'<div class="tile"><div class="cap">Categories considered</div>'
+                f'<div class="big">{summary["n_categories"]}</div>'
+                f'<div class="sub">gender-split shoe categories</div></div>', unsafe_allow_html=True)
+    t2.markdown(f'<div class="tile"><div class="cap">Sub-categories</div>'
+                f'<div class="big">{summary["n_subcategories"]}</div>'
+                f'<div class="sub">category × price band</div></div>', unsafe_allow_html=True)
+    t3.markdown(f'<div class="tile a"><div class="cap">Opportunities identified</div>'
+                f'<div class="big">{summary["n_opportunities"]}</div>'
+                f'<div class="sub">high demand, thin {FOCAL} presence</div></div>', unsafe_allow_html=True)
+    t4.markdown(f'<div class="tile f"><div class="cap">{FOCAL} overall share</div>'
+                f'<div class="big">{fmt_pct(summary["focal_overall_share"])}</div>'
+                f'<div class="sub">of all ratings captured</div></div>', unsafe_allow_html=True)
+
+    st.markdown('<div style="height:22px"></div>', unsafe_allow_html=True)
+
+    # ---- 2x2 matrix ----
+    # Built as one unbroken string: any newline + indentation here would be treated as a
+    # markdown code block and the grid would fall apart.
+    matrix = (
+        '<div class="panel">'
+        '<div class="ptitle">Sub-Category Wise Prioritization Matrix</div>'
+        f'<div class="psub">Every sub-category placed by how much demand it carries and how much '
+        f'of that demand {FOCAL} currently holds. The amber cell is where to grow.</div>'
+        '<div class="mx">'
+        '<div class="ylab">High category demand</div>'
+        + _qbox(cells, "Opportunity", hot=True)
+        + _qbox(cells, "Defend")
+        + '<div class="ylab">Low category demand</div>'
+        + _qbox(cells, "Deprioritise")
+        + _qbox(cells, "Maintain")
+        + '</div>'
+        '<div class="axrow"><div></div>'
+        f'<div>{FOCAL} barely has presence</div>'
+        f'<div>{FOCAL} has strong presence</div>'
+        '</div></div>'
+    )
+    st.markdown(matrix, unsafe_allow_html=True)
+
+    # ---- ranked opportunities ----
+    opps = sorted([c for c in cells
+                   if c["quadrant"] == "Opportunity" and not c.get("is_thin")],
+                  key=lambda c: c.get("priority_rank") or 999)
+    thin_opps = [c for c in cells if c["quadrant"] == "Opportunity" and c.get("is_thin")]
+
+    st.markdown('<div style="height:8px"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="ptitle">Prioritised opportunities</div>'
+                f'<div class="psub">Ranked by the size of the prize — how much demand sits in the band '
+                f'weighted by how much room {FOCAL} has to gain. Open any one for the full insight.</div>',
+                unsafe_allow_html=True)
+
+    if thin_opps:
+        names = ", ".join(f"{pretty_category(c['category'])} · {c['price_tier']}" for c in thin_opps)
+        st.markdown(f'<div class="warn"><b>Excluded from ranking — too few listings to judge:</b> '
+                    f'{esc(names)}. Myntra carries under 50 products in these bands, so percentage '
+                    f'shares there swing on one or two items.</div>', unsafe_allow_html=True)
+
+    if not opps:
+        st.info("No opportunity sub-categories with enough listings to rank in this run.")
+        return
+
+    for i, cell in enumerate(opps, start=1):
+        sc = cell.get("scenario") or {}
+        key = f"{cell['category']}|{cell['price_tier']}"
+        card = (
+            '<div class="oppcard">'
+            f'<div><span class="rk">{i}</span>'
+            f'<span class="nm">{esc(pretty_category(cell["category"]))} · {esc(cell["price_tier"])}</span>'
+            f'<span class="band">{esc(tier_range(cell))}</span>'
+            f'{intensity_pill(cell.get("competition_intensity"))}</div>'
+            '<div class="sc">'
+            f'<b>Market leader.</b> {esc(sc.get("leader",""))}<br/>'
+            f'<b>Competitive intensity.</b> {esc(sc.get("competition",""))}<br/>'
+            f'<b>{FOCAL} today.</b> {esc(sc.get("focal",""))}'
+            '</div></div>'
+        )
+        st.markdown(card, unsafe_allow_html=True)
+        if st.button("View detailed insight →", key=f"open_{key}"):
+            _detail_dialog(cell, processed, reviews, analysis)
+
+    st.markdown('<div style="height:6px"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="note">Point-in-time snapshot. Demand is proxied by customer ratings '
+                'volume (not verified sales); each sub-category was scraped with Myntra\'s price '
+                'slider set to that band, sorted by Popularity, first 5 result pages.</div>',
+                unsafe_allow_html=True)

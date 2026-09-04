@@ -1,0 +1,354 @@
+{
+  "walking_men": [
+    {
+      "label": "Entry-Level",
+      "min": 800,
+      "max": 1500
+    },
+    {
+      "label": "Mid-Range",
+      "min": 1500,
+      "max": 4000
+    },
+    {
+      "label": "Premium",
+      "min": 4000,
+      "max": 8000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 8000,
+      "max": null
+    }
+  ],
+  "casual_men": [
+    {
+      "label": "Entry-Level",
+      "min": 800,
+      "max": 1500
+    },
+    {
+      "label": "Mid-Range",
+      "min": 1500,
+      "max": 4000
+    },
+    {
+      "label": "Premium",
+      "min": 4000,
+      "max": 8000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 8000,
+      "max": null
+    }
+  ],
+  "badminton_men": [
+    {
+      "label": "Entry-Level",
+      "min": 900,
+      "max": 2000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 2000,
+      "max": 5000
+    },
+    {
+      "label": "Premium",
+      "min": 5000,
+      "max": 10000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 10000,
+      "max": null
+    }
+  ],
+  "football_men": [
+    {
+      "label": "Entry-Level",
+      "min": 900,
+      "max": 2000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 2000,
+      "max": 5000
+    },
+    {
+      "label": "Premium",
+      "min": 5000,
+      "max": 10000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 10000,
+      "max": null
+    }
+  ],
+  "basketball_men": [
+    {
+      "label": "Entry-Level",
+      "min": 1500,
+      "max": 3000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 3000,
+      "max": 7000
+    },
+    {
+      "label": "Premium",
+      "min": 7000,
+      "max": 12000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 12000,
+      "max": null
+    }
+  ],
+  "hiking_men": [
+    {
+      "label": "Entry-Level",
+      "min": 1500,
+      "max": 3000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 3000,
+      "max": 7000
+    },
+    {
+      "label": "Premium",
+      "min": 7000,
+      "max": 12000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 12000,
+      "max": null
+    }
+  ],
+  "running_men": [
+    {
+      "label": "Entry-Level",
+      "min": 1500,
+      "max": 3500
+    },
+    {
+      "label": "Mid-Range",
+      "min": 3500,
+      "max": 8000
+    },
+    {
+      "label": "Premium",
+      "min": 8000,
+      "max": 13000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 13000,
+      "max": null
+    }
+  ],
+  "training_men": [
+    {
+      "label": "Entry-Level",
+      "min": 1500,
+      "max": 3500
+    },
+    {
+      "label": "Mid-Range",
+      "min": 3500,
+      "max": 8000
+    },
+    {
+      "label": "Premium",
+      "min": 8000,
+      "max": 13000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 13000,
+      "max": null
+    }
+  ],
+  "walking_women": [
+    {
+      "label": "Entry-Level",
+      "min": 600,
+      "max": 1500
+    },
+    {
+      "label": "Mid-Range",
+      "min": 1500,
+      "max": 3500
+    },
+    {
+      "label": "Premium",
+      "min": 3500,
+      "max": 7000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 7000,
+      "max": null
+    }
+  ],
+  "casual_women": [
+    {
+      "label": "Entry-Level",
+      "min": 600,
+      "max": 1500
+    },
+    {
+      "label": "Mid-Range",
+      "min": 1500,
+      "max": 3500
+    },
+    {
+      "label": "Premium",
+      "min": 3500,
+      "max": 7000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 7000,
+      "max": null
+    }
+  ],
+  "badminton_women": [
+    {
+      "label": "Entry-Level",
+      "min": 800,
+      "max": 2000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 2000,
+      "max": 4500
+    },
+    {
+      "label": "Premium",
+      "min": 4500,
+      "max": 9000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 9000,
+      "max": null
+    }
+  ],
+  "football_women": [
+    {
+      "label": "Entry-Level",
+      "min": 800,
+      "max": 2000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 2000,
+      "max": 4500
+    },
+    {
+      "label": "Premium",
+      "min": 4500,
+      "max": 9000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 9000,
+      "max": null
+    }
+  ],
+  "basketball_women": [
+    {
+      "label": "Entry-Level",
+      "min": 1500,
+      "max": 3000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 3000,
+      "max": 6000
+    },
+    {
+      "label": "Premium",
+      "min": 6000,
+      "max": 11000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 11000,
+      "max": null
+    }
+  ],
+  "hiking_women": [
+    {
+      "label": "Entry-Level",
+      "min": 1500,
+      "max": 3000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 3000,
+      "max": 6000
+    },
+    {
+      "label": "Premium",
+      "min": 6000,
+      "max": 11000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 11000,
+      "max": null
+    }
+  ],
+  "running_women": [
+    {
+      "label": "Entry-Level",
+      "min": 1200,
+      "max": 3000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 3000,
+      "max": 7000
+    },
+    {
+      "label": "Premium",
+      "min": 7000,
+      "max": 12000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 12000,
+      "max": null
+    }
+  ],
+  "training_women": [
+    {
+      "label": "Entry-Level",
+      "min": 1200,
+      "max": 3000
+    },
+    {
+      "label": "Mid-Range",
+      "min": 3000,
+      "max": 7000
+    },
+    {
+      "label": "Premium",
+      "min": 7000,
+      "max": 12000
+    },
+    {
+      "label": "Pro-Tier",
+      "min": 12000,
+      "max": null
+    }
+  ]
+}

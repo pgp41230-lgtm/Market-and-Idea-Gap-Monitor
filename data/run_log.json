@@ -1,0 +1,23 @@
+{
+  "runs": [
+    {
+      "run_ts": "2026-09-05_PILOT",
+      "started_at": "2026-09-05T00:48:12.971499",
+      "categories": [
+        "running_men",
+        "running_women",
+        "basketball_men",
+        "basketball_women"
+      ],
+      "phases": {
+        "scrape": "success (16 sub-categories, price-filtered + popularity-sorted)",
+        "features": "success (colourways collapsed to models)",
+        "scoring": "success (thin sub-categories flagged)",
+        "review_mining": "success (5 opportunity sub-categories)",
+        "review_analysis": "authored by Claude from pooled review text",
+        "ad_landscape": "success (category-level, unfiltered pass)"
+      },
+      "completed_at": "2026-09-05T01:11:55.285034"
+    }
+  ]
+}

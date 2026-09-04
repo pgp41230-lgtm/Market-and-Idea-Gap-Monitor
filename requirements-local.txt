@@ -1,0 +1,6 @@
+# Local machine only — needed to run the scraper. The hosted app never scrapes
+# (Myntra blocks servers), so requirements.txt deliberately omits these.
+-r requirements.txt
+playwright
+openpyxl
+python-dotenv

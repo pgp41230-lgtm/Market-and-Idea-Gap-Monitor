@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.claude/
+
+# Raw scrapes are the scraper's working files and are large; the dashboard only reads
+# data/processed, data/scores and data/reviews, so raw stays local.
+data/raw/
