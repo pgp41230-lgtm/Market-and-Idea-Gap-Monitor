@@ -130,13 +130,17 @@ def mine_opportunities(scores: dict, processed_by_category: dict,
             print(f"  [reviews] {category} / {tier}")
 
             df = df[df["review_count"].fillna(0) > 0].sort_values("review_count", ascending=False)
-            # Myntra lists every colourway of the same shoe as its own listing, so an
-            # undeduplicated "top 3" is often the same model three times. Collapse on
-            # brand+title so the three shown are genuinely different products.
-            top3 = df.drop_duplicates(subset=["brand", "title"]).head(3).to_dict("records")
+            # Myntra lists the same shoe repeatedly — as separate colourways, and sometimes
+            # under slightly different titles ("NB 408 Casual Shoes" vs "Men 408 Textured
+            # Sneakers", same 498 ratings). Dedupe on brand+title AND on brand+review_count,
+            # since one brand having two products with an identical rating tally is
+            # effectively always the same product listed twice.
+            df = (df.drop_duplicates(subset=["brand", "title"])
+                    .drop_duplicates(subset=["brand", "review_count"]))
+            top3 = df.head(3).to_dict("records")
 
             focal_df = df[df["brand"].fillna("").str.strip().str.lower() == FOCAL_BRAND.lower()]
-            focal_top = focal_df.drop_duplicates(subset=["brand", "title"]).head(1).to_dict("records")
+            focal_top = focal_df.head(1).to_dict("records")
 
             top_products = []
             for row in top3:

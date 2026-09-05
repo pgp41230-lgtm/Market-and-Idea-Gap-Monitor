@@ -96,16 +96,51 @@ div[data-testid="stColumn"]:has(.navcol-marker) {{
 }}
 .navcol-marker {{ display: none; }}
 
-.brandmark {{ display:flex; align-items:center; gap:11px; padding: 0 4px 18px; }}
-.brandmark .glyph {{
-    width: 38px; height: 38px; border-radius: 10px; flex: 0 0 38px;
-    background: linear-gradient(135deg, {C["focal"]} 0%, #F2683C 100%);
-    display:flex; align-items:center; justify-content:center;
-    font-weight:800; color:#fff; font-size:1rem;
+.brandmark {{ padding: 2px 4px 18px; }}
+.brandmark .puma {{
+    color:#fff; font-size:1.5rem; font-weight:800; letter-spacing:.16em;
+    line-height:1; display:block;
 }}
-.brandmark .wm {{ line-height:1.15; }}
-.brandmark .wm b {{ color:#fff; font-size:1rem; font-weight:800; letter-spacing:-.01em; display:block; }}
-.brandmark .wm span {{ color:#7D8AA0; font-size:.63rem; letter-spacing:.13em; text-transform:uppercase; font-weight:600; }}
+.brandmark .wm {{ line-height:1.25; margin-top:7px; }}
+.brandmark .wm b {{ color:#C7CEDB; font-size:.78rem; font-weight:700; display:block;
+                    letter-spacing:.01em; }}
+.brandmark .wm span {{ color:#66738A; font-size:.6rem; letter-spacing:.13em;
+                       text-transform:uppercase; font-weight:600; }}
+.brandmark .rule {{ height:2px; width:34px; background:#fff; margin:9px 0 0; opacity:.85; }}
+
+/* ---------- info tooltips ---------- */
+.info-icon {{
+    position:relative; display:inline-block; margin-left:6px; cursor:help;
+    vertical-align:middle; opacity:.45; transition:opacity .12s;
+}}
+.info-icon:hover {{ opacity:1; }}
+.info-icon svg {{ display:block; }}
+.info-icon .tip {{
+    visibility:hidden; opacity:0; position:absolute; z-index:9999;
+    left:50%; transform:translateX(-50%); bottom:150%; width:310px;
+    background:{C["nav"]}; color:#E7EAF0; padding:11px 13px; border-radius:9px;
+    font-size:.74rem; font-weight:500; line-height:1.5; letter-spacing:0;
+    text-transform:none; text-align:left; white-space:normal;
+    box-shadow:0 10px 28px rgba(16,24,40,.28); transition:opacity .12s;
+}}
+.info-icon:hover .tip {{ visibility:visible; opacity:1; }}
+.info-icon .tip b {{ color:#fff; }}
+/* Streamlit's scroll container clips absolutely-positioned children, so a centred
+   tooltip on a right-hand card would be cut off. Anchor those to the right instead. */
+.info-icon.tip-right .tip {{ left:auto; right:-6px; transform:none; }}
+.info-icon.tip-left .tip {{ left:-6px; right:auto; transform:none; }}
+/* tooltips must escape their card, so nothing in the chain may clip */
+.tile, .panel, div[data-testid="stColumn"] {{ overflow: visible !important; }}
+
+/* ---------- methodology strip ---------- */
+.method {{
+    background:{C["surface"]}; border:1px solid {C["line"]}; border-radius:12px;
+    padding:13px 16px; margin:10px 0 4px; font-size:.78rem; color:{C["body"]};
+    line-height:1.6;
+}}
+.method b {{ color:{C["ink"]}; font-weight:700; }}
+.method .mlabel {{ font-size:.63rem; letter-spacing:.11em; text-transform:uppercase;
+                   color:{C["muted"]}; font-weight:700; display:block; margin-bottom:5px; }}
 
 .navlabel {{ color:#66738A !important; font-size:.62rem; letter-spacing:.13em;
              text-transform:uppercase; font-weight:700; padding:14px 6px 6px; }}

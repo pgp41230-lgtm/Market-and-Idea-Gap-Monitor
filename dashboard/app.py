@@ -18,8 +18,8 @@ import page_analytics
 import page_monitor
 import page_opportunity
 
-st.set_page_config(page_title=f"{FOCAL_BRAND} Idea Gap Monitor",
-                   page_icon="◎", layout="wide",
+st.set_page_config(page_title=f"Market and Idea Gap Monitor — {FOCAL_BRAND}",
+                   page_icon="◉", layout="wide",
                    initial_sidebar_state="collapsed")  # nav is an in-page column, not the sidebar
 st.markdown(CSS, unsafe_allow_html=True)
 
@@ -83,8 +83,11 @@ nav_col, main_col = st.columns([1, 4.4], gap="large")
 with nav_col:
     st.markdown('<div class="navcol-marker"></div>', unsafe_allow_html=True)
     st.markdown(
-        f'<div class="brandmark"><div class="glyph">◎</div>'
-        f'<div class="wm"><b>{FOCAL_BRAND} GapMonitor</b><span>Myntra Market Intelligence</span></div>'
+        f'<div class="brandmark">'
+        f'<span class="puma">{FOCAL_BRAND.upper()}</span>'
+        f'<div class="rule"></div>'
+        f'<div class="wm"><b>Market and Idea Gap Monitor</b>'
+        f'<span>Myntra Market Intelligence</span></div>'
         f'</div>', unsafe_allow_html=True)
 
     st.markdown('<div class="navlabel">Navigate</div>', unsafe_allow_html=True)

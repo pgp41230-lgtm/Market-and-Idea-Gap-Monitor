@@ -65,6 +65,29 @@ def focal_concentration_index(products: list) -> float:
     return float((shares ** 2).sum())
 
 
+FOOTWEAR_HINTS = ("shoe", "sneaker", "boot", "sandal", "floater", "slipper", "flip-flop")
+
+
+def footwear_only(df: pd.DataFrame) -> pd.DataFrame:
+    """Drop products that are not footwear.
+
+    Searching Myntra for "men football shoes" also returns actual footballs, and those
+    carry real ratings — in Football Women they accounted for ~46% of listings, with two
+    Puma footballs inflating Puma's apparent presence in the category. Product titles are
+    truncated in the grid so they can't be trusted ("LeBron Witness 9 Basketball Sh"), but
+    every product URL starts with Myntra's own article type — sports-shoes / casual-shoes
+    for footwear, footballs / basketballs for the balls — which is reliable.
+    """
+    if df.empty or "url" not in df:
+        return df
+    seg = (df["url"].fillna("")
+           .str.extract(r"myntra\.com/([^/]+)/", expand=False)
+           .fillna("")
+           .str.lower())
+    keep = seg.apply(lambda s: any(h in s for h in FOOTWEAR_HINTS))
+    return df[keep]
+
+
 def collapse_colourways(df: pd.DataFrame) -> pd.DataFrame:
     """Myntra lists every colour of the same shoe as its own listing. Counting those as
     separate products makes a brand with eight colourways of one model look like eight
@@ -119,6 +142,11 @@ def engineer_features(raw: dict) -> dict:
         df = pd.DataFrame(products)
         df["brand"] = df["brand"].fillna("Unknown").str.strip()
         df["review_count"] = df["review_count"].fillna(0).astype(int)
+
+        df = footwear_only(df)
+        if df.empty:
+            subcategories.append({**sub, "products": [], "sku_listings": 0})
+            continue
 
         sku_listings = int(len(df))
         df = collapse_colourways(df)

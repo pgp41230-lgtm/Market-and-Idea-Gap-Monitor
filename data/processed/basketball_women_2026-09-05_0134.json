@@ -2,7 +2,7 @@
   "category": "basketball_women",
   "search_term": "women basketball shoes",
   "scraped_at": "2026-09-05T02:01:59.538898",
-  "focal_concentration_index": 0.14788367141979275,
+  "focal_concentration_index": 0.14999070716326435,
   "ad_landscape": {
     "brands": [
       {
@@ -49,25 +49,7 @@
           "sku_count": 1,
           "category": "basketball_women",
           "price_tier": "Entry-Level",
-          "adjusted_rating": 4.294326241134752,
-          "keyword_tags": []
-        },
-        {
-          "listing_id": "34689424",
-          "url": "https://www.myntra.com/basketballs/puma/puma-printed-indoor-basketball/34689424/buy",
-          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/JUNE/3/1Z3QRaHj_a17ad17c43494dbba5e4409e7cf4f663.jpg",
-          "brand": "Puma",
-          "title": "Printed Indoor Basketball",
-          "price": 1999.0,
-          "mrp": 2499.0,
-          "discount_pct": 0.2001,
-          "rating": 3.6,
-          "review_count": 7,
-          "sponsored": false,
-          "sku_count": 1,
-          "category": "basketball_women",
-          "price_tier": "Entry-Level",
-          "adjusted_rating": 3.620833333333333,
+          "adjusted_rating": 4.295212765957447,
           "keyword_tags": []
         },
         {
@@ -85,7 +67,7 @@
           "sku_count": 1,
           "category": "basketball_women",
           "price_tier": "Entry-Level",
-          "adjusted_rating": 3.4611111111111112,
+          "adjusted_rating": 3.475,
           "keyword_tags": []
         },
         {
@@ -125,24 +107,6 @@
           "keyword_tags": []
         },
         {
-          "listing_id": "43934079",
-          "url": "https://www.myntra.com/basketballs/adidas/adidas-unisex-all-court-30-basketball/43934079/buy",
-          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/JULY/8/4fDFEmGR_145bc7816553476dbcd3b9ec0e1ad42b.jpg",
-          "brand": "ADIDAS",
-          "title": "ALL COURT 3.0",
-          "price": 2499.0,
-          "mrp": 2499.0,
-          "discount_pct": 0.0,
-          "rating": NaN,
-          "review_count": 0,
-          "sponsored": false,
-          "sku_count": 1,
-          "category": "basketball_women",
-          "price_tier": "Entry-Level",
-          "adjusted_rating": NaN,
-          "keyword_tags": []
-        },
-        {
           "listing_id": "40485038",
           "url": "https://www.myntra.com/sports-shoes/aivin/aivin-wave-plus-blue-and-white-basketball-shoes/40485038/buy",
           "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/MARCH/5/zvgMezIj_68eb64315a0d45158a9cd9385697abdb.jpg",
@@ -155,42 +119,6 @@
           "review_count": 0,
           "sponsored": false,
           "sku_count": 1,
-          "category": "basketball_women",
-          "price_tier": "Entry-Level",
-          "adjusted_rating": NaN,
-          "keyword_tags": []
-        },
-        {
-          "listing_id": "43934078",
-          "url": "https://www.myntra.com/basketballs/adidas/adidas-unisex-3-stripes-rubber-x3-basketball/43934078/buy",
-          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/JULY/8/FzcqjOqj_357ade018ba64018999230230230a02d.jpg",
-          "brand": "ADIDAS",
-          "title": "3S Rubber X3",
-          "price": 1799.0,
-          "mrp": 1799.0,
-          "discount_pct": 0.0,
-          "rating": NaN,
-          "review_count": 0,
-          "sponsored": false,
-          "sku_count": 1,
-          "category": "basketball_women",
-          "price_tier": "Entry-Level",
-          "adjusted_rating": NaN,
-          "keyword_tags": []
-        },
-        {
-          "listing_id": "40985452",
-          "url": "https://www.myntra.com/basketballs/nivia/nivia-printed-basketballs/40985452/buy",
-          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/MARCH/28/SvERssS2_41cfb81da0764924ba8c3b5fe23f468a.jpg",
-          "brand": "NIVIA",
-          "title": "Printed Basketballs",
-          "price": 1599.0,
-          "mrp": 1599.0,
-          "discount_pct": 0.0,
-          "rating": NaN,
-          "review_count": 0,
-          "sponsored": false,
-          "sku_count": 2,
           "category": "basketball_women",
           "price_tier": "Entry-Level",
           "adjusted_rating": NaN,
@@ -213,27 +141,9 @@
           "price_tier": "Entry-Level",
           "adjusted_rating": NaN,
           "keyword_tags": []
-        },
-        {
-          "listing_id": "43570341",
-          "url": "https://www.myntra.com/basketballs/puma/puma-lafranc-supply-basketball-fan-ball/43570341/buy",
-          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/JUNE/30/0vtmiYWR_2ff0082ae502469980a77a2cf040b5c7.jpg",
-          "brand": "Puma",
-          "title": "LaFranc Supply Basketball",
-          "price": 1999.0,
-          "mrp": 1999.0,
-          "discount_pct": 0.0,
-          "rating": NaN,
-          "review_count": 0,
-          "sponsored": false,
-          "sku_count": 1,
-          "category": "basketball_women",
-          "price_tier": "Entry-Level",
-          "adjusted_rating": NaN,
-          "keyword_tags": []
         }
       ],
-      "sku_listings": 12
+      "sku_listings": 6
     },
     {
       "category": "basketball_women",
@@ -258,7 +168,7 @@
           "sku_count": 1,
           "category": "basketball_women",
           "price_tier": "Mid-Range",
-          "adjusted_rating": 4.39937647697169,
+          "adjusted_rating": 4.398348443602794,
           "keyword_tags": []
         },
         {
@@ -276,7 +186,7 @@
           "sku_count": 2,
           "category": "basketball_women",
           "price_tier": "Mid-Range",
-          "adjusted_rating": 4.410720854978924,
+          "adjusted_rating": 4.407297230003112,
           "keyword_tags": []
         },
         {
@@ -294,7 +204,7 @@
           "sku_count": 2,
           "category": "basketball_women",
           "price_tier": "Mid-Range",
-          "adjusted_rating": 4.278284232906859,
+          "adjusted_rating": 4.28820185758514,
           "keyword_tags": []
         },
         {
@@ -312,7 +222,7 @@
           "sku_count": 1,
           "category": "basketball_women",
           "price_tier": "Mid-Range",
-          "adjusted_rating": 4.699922301008688,
+          "adjusted_rating": 4.604166894664843,
           "keyword_tags": []
         },
         {
@@ -330,7 +240,7 @@
           "sku_count": 1,
           "category": "basketball_women",
           "price_tier": "Mid-Range",
-          "adjusted_rating": 4.052266253869968,
+          "adjusted_rating": 4.163005347593583,
           "keyword_tags": []
         },
         {
@@ -342,60 +252,6 @@
           "price": 3199.0,
           "mrp": 3299.0,
           "discount_pct": 0.0303,
-          "rating": NaN,
-          "review_count": 0,
-          "sponsored": false,
-          "sku_count": 1,
-          "category": "basketball_women",
-          "price_tier": "Mid-Range",
-          "adjusted_rating": NaN,
-          "keyword_tags": []
-        },
-        {
-          "listing_id": "40509092",
-          "url": "https://www.myntra.com/sports-shoes/decathlon/decathlon-kipsta---adults-black-xover-100-mid-cut-foot-support-basketball-shoes/40509092/buy",
-          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/MARCH/6/wJKSFFEr_9e2f8ead18f6449b840b9fb9d30a9736.jpg",
-          "brand": "Decathlon",
-          "title": "Adult Basketball Shoe Xover",
-          "price": 3199.0,
-          "mrp": 3999.0,
-          "discount_pct": 0.2001,
-          "rating": NaN,
-          "review_count": 0,
-          "sponsored": false,
-          "sku_count": 1,
-          "category": "basketball_women",
-          "price_tier": "Mid-Range",
-          "adjusted_rating": NaN,
-          "keyword_tags": []
-        },
-        {
-          "listing_id": "37604394",
-          "url": "https://www.myntra.com/basketballs/nivia/nivia-printed-textured-quantum-basketballs/37604394/buy",
-          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2025/OCTOBER/25/I3as4aYQ_a0223caccd3f490a9021486c4514538e.jpg",
-          "brand": "NIVIA",
-          "title": "Printed Quantum Basketballs",
-          "price": 3999.0,
-          "mrp": 3999.0,
-          "discount_pct": 0.0,
-          "rating": NaN,
-          "review_count": 0,
-          "sponsored": false,
-          "sku_count": 1,
-          "category": "basketball_women",
-          "price_tier": "Mid-Range",
-          "adjusted_rating": NaN,
-          "keyword_tags": []
-        },
-        {
-          "listing_id": "42051528",
-          "url": "https://www.myntra.com/basketballs/puma/puma-fast-and-furious-graphic-basketball/42051528/buy",
-          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/MAY/11/yDWuCJHz_8a1e5ca5d4e9425e94c8b5085ee06f1a.jpg",
-          "brand": "Puma",
-          "title": "Fast and Furious Basketball",
-          "price": 3199.0,
-          "mrp": 3999.0,
-          "discount_pct": 0.2001,
           "rating": NaN,
           "review_count": 0,
           "sponsored": false,
@@ -422,9 +278,27 @@
           "price_tier": "Mid-Range",
           "adjusted_rating": NaN,
           "keyword_tags": []
+        },
+        {
+          "listing_id": "40509092",
+          "url": "https://www.myntra.com/sports-shoes/decathlon/decathlon-kipsta---adults-black-xover-100-mid-cut-foot-support-basketball-shoes/40509092/buy",
+          "image_url": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/2026/MARCH/6/wJKSFFEr_9e2f8ead18f6449b840b9fb9d30a9736.jpg",
+          "brand": "Decathlon",
+          "title": "Adult Basketball Shoe Xover",
+          "price": 3199.0,
+          "mrp": 3999.0,
+          "discount_pct": 0.2001,
+          "rating": NaN,
+          "review_count": 0,
+          "sponsored": false,
+          "sku_count": 1,
+          "category": "basketball_women",
+          "price_tier": "Mid-Range",
+          "adjusted_rating": NaN,
+          "keyword_tags": []
         }
       ],
-      "sku_listings": 12
+      "sku_listings": 10
     },
     {
       "category": "basketball_women",

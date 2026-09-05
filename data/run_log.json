@@ -17,13 +17,13 @@
       ],
       "phases": {
         "scrape": "success (38 sub-categories across 5 categories x gender)",
-        "features": "success (colourways collapsed to models)",
-        "scoring": "success (12 opportunities, thin bands flagged)",
-        "review_mining": "success (top 6 opportunities)",
-        "review_analysis": "authored by Claude from pooled review text",
+        "features": "success (colourways collapsed; non-footwear filtered out)",
+        "scoring": "success (13 opportunities, thin bands flagged)",
+        "review_mining": "success (all 13 opportunities)",
+        "review_analysis": "authored by Claude; seller/logistics issues excluded",
         "ad_landscape": "success (category-level)"
       },
-      "completed_at": "2026-09-05T02:09:13.000203"
+      "completed_at": "2026-09-05T13:06:22.908913"
     }
   ]
 }

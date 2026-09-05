@@ -16,6 +16,24 @@ def esc(x):
     return html.escape(str(x)) if x is not None else ""
 
 
+_EYE_SVG = (
+    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+    'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>'
+    '<circle cx="12" cy="12" r="3"/></svg>'
+)
+
+
+def info(text: str, align: str = "center") -> str:
+    """An eye icon that reveals an explanation on hover. `text` may contain <b>.
+
+    align="right" for elements near the right edge, whose centred tooltip would
+    otherwise be clipped by Streamlit's scroll container.
+    """
+    cls = {"right": " tip-right", "left": " tip-left"}.get(align, "")
+    return f'<span class="info-icon{cls}">{_EYE_SVG}<span class="tip">{text}</span></span>'
+
+
 def fmt_int(x):
     try:
         return f"{int(x):,}"
@@ -150,6 +168,7 @@ def render_opportunity_detail(cell: dict, processed: dict, reviews: dict,
             top_products = (cat_df[cat_df["review_count"].fillna(0) > 0]
                             .sort_values("review_count", ascending=False)
                             .drop_duplicates(subset=["brand", "title"])
+                            .drop_duplicates(subset=["brand", "review_count"])
                             .head(3).to_dict("records"))
         else:
             top_products = []

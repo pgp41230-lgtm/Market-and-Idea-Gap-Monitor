@@ -1,31 +1,33 @@
 {
-  "_note": "Pros/cons written by Claude from the pooled Myntra review text captured in raw_reviews_<run>.json for the same run. Every point is grounded in what reviewers actually wrote; no external LLM API is involved.",
+  "_note": "Pros/cons written by Claude from the pooled Myntra review text captured in raw_reviews_<run>.json for the same run. No external LLM API is involved.",
+  "_quality_rules": [
+    "Only attributes of the PRODUCT count. Seller and marketplace problems are excluded — wrong size shipped, damaged or missing boxes, slow delivery, out-of-stock, doubts about authenticity. Those reflect fulfilment, not what the brand designed and made.",
+    "A theme is included when several reviewers independently raise it. Where a single review is specific and materially important it is still included, and is explicitly marked as coming from one reviewer so its weight is clear.",
+    "Where a brand's own product has too few reviews to read, that is stated rather than padded out."
+  ],
 
   "casual_women|Entry-Level": {
     "top_pros": [
-      "Softness is the entire proposition — 'super soft' cushioned soles that buyers wear all day, with several reporting genuine relief from heel pain and plantar fasciitis",
-      "Ultra-lightweight, comfortable enough for long walks and full working days on the feet",
-      "Slip-on convenience paired with muted, versatile colours reviewers say match everything in their wardrobe",
-      "Colour and fit arrive true to the photos, and comfort is confirmed still holding after three months of wear",
-      "Priced low enough that buyers recommend them as gifts for elderly relatives purely for the comfort"
+      "Softness is the whole proposition — 'super soft' cushioned soles that buyers wear all day, raised by reviewers across all three products",
+      "Several buyers specifically bought them for heel pain and plantar fasciitis and report the cushioning genuinely helps",
+      "Consistently described as ultra-lightweight, and comfortable through long walks and full working days",
+      "Slip-on convenience with muted, versatile colours that reviewers say match everything they own",
+      "Colour and fit arrive true to the product photos, and one buyer confirms comfort still holding after three months"
     ],
     "top_cons": [
-      "Narrow toe boxes are the dominant complaint — broad-footed buyers are repeatedly told to size up or look elsewhere",
-      "Sizing is inconsistent: one buyer ordered a 6 and received a 5",
-      "The very soft soles lose firmness and shape after roughly a month of wear",
-      "At least one pair was found not actually soft or cushioned inside, despite the styling promise"
+      "Narrow fit is the dominant complaint — broad-footed buyers repeatedly report pinching at the toe and are told to size up or look elsewhere",
+      "The very soft soles lose firmness and shape after about a month of wear (one detailed reviewer)"
     ],
     "focal_pros": [
-      "The SoftFoam+ sole draws unusually strong praise — one reviewer says she has never felt this level of comfort in any shoe",
-      "Explicitly singled out as fitting wide and long feet well, which is precisely the complaint aimed at the leading rivals",
-      "Lightweight and versatile enough to pair with both ethnic and western outfits",
-      "Slip-on design saves time, and the padded interior is described as soft, warm and protective"
+      "The SoftFoam+ sole draws unusually strong praise — one buyer says she has never felt this level of comfort in any shoe",
+      "Repeatedly noted as fitting wide and long feet well, which is exactly the complaint aimed at the leading rivals in this band",
+      "Lightweight, and versatile enough to pair with both ethnic and western outfits",
+      "Slip-on design with a soft, padded interior described as warm and protective"
     ],
     "focal_cons": [
-      "Some experience shoe bite initially, needing about a week of continuous wear before it settles",
-      "The curved closure beneath the elastic band is tight and undercuts the overall comfort",
-      "Sizing runs slightly small",
-      "Colours read as muted rather than bright, which not every buyer wanted"
+      "Needs breaking in — buyers report shoe bite for the first few days before it settles",
+      "Sizing runs slightly small, so several suggest going up a size",
+      "The curved closure beneath the elastic band is tight and undercuts comfort (one reviewer)"
     ]
   },
 
@@ -33,14 +35,14 @@
     "top_pros": [
       "True-to-size fit with a secure hold, called out consistently across all three leading products",
       "Cushioning holds up to real use — one reviewer logs daily 2-3 hour concrete walks and praises how the midsole absorbs heavy landings without bottoming out",
-      "Materials feel durable and premium for an entry price; 'value for money' is the single most repeated phrase",
-      "Minimalist, versatile styling that works with jeans, joggers or shorts",
-      "Breathable mesh uppers with grip reviewers trust for daily walking"
+      "Materials feel durable and premium for an entry price; 'value for money' is the single most repeated phrase in this band",
+      "Minimalist, versatile styling that reviewers wear with jeans, joggers and shorts alike",
+      "Breathable mesh uppers with grip buyers trust for daily walking"
     ],
     "top_cons": [
-      "The Duke pair sits low at the heel, and the padded collar makes buyers feel the shoe could slip off mid-stride",
-      "Sizing guidance conflicts — some reviewers advise ordering a size larger, against others reporting true fit",
-      "Quality is framed as good 'for the price' rather than genuinely good; several rate them merely decent"
+      "The Duke pair sits low at the heel and the padded collar makes buyers feel the shoe could slip off mid-stride (one detailed reviewer)",
+      "Sizing guidance conflicts — some advise ordering a size larger while others report true fit",
+      "Quality is framed as good 'for the price' rather than good outright; several rate them merely decent"
     ],
     "focal_pros": [],
     "focal_cons": []
@@ -49,15 +51,14 @@
   "casual_men|Entry-Level": {
     "top_pros": [
       "Slip-on convenience is the core draw — quick on and off, which buyers value for daily work wear",
-      "Lightweight with breathable fabric that keeps feet cool through long hours of standing and walking",
-      "Memory-foam style cushioning and good internal grip so feet don't tire",
-      "NEEMANS earns distinct praise for craftsmanship, premium feel and sustainable materials — an eco-friendly pitch buyers actively mention",
-      "Styling is smart enough to carry from daily wear through to party wear"
+      "Lightweight with breathable fabric that reviewers say keeps feet cool through long hours standing and walking",
+      "Memory-foam style cushioning and good internal grip, so feet do not tire over a full day",
+      "NEEMANS earns distinct praise for craftsmanship and sustainable materials — buyers actively mention the eco-friendly pitch as a reason to buy",
+      "Smart enough to carry from daily wear through to party wear"
     ],
     "top_cons": [
-      "Narrow toe box is the standout flaw — broad-footed buyers report the small toe getting hurt",
-      "Box sizing errors: a pair marked UK6 outside contained UK7 shoes",
-      "Finishing quality criticised as needing improvement, with the price feeling high for what is delivered",
+      "Narrow toe box — broad-footed buyers report the small toe getting hurt",
+      "Finishing quality is criticised as needing improvement, with the price feeling high for what is delivered",
       "One reviewer wanted a wider sole for better lateral stability"
     ],
     "focal_pros": [],
@@ -66,27 +67,27 @@
 
   "walking_men|Mid-Range": {
     "top_pros": [
-      "ETPU foam midsoles deliver cushioning reviewers describe as genuinely premium, under chunky geometric styling that lifts basic outfits",
-      "Breathable mesh uppers singled out for warm weather comfort",
+      "ETPU foam midsoles deliver cushioning reviewers describe as genuinely premium, under chunky styling that lifts basic outfits",
+      "Breathable mesh uppers singled out for warm-weather comfort",
       "Lightweight but substantial, with a look buyers repeatedly call premium relative to the price",
-      "Durability confirmed in practice — one pair reviewed after roughly six months of daily use"
+      "Durability confirmed in practice, including one pair reviewed after roughly six months of daily use"
     ],
     "top_cons": [
-      "Buyers expecting running shoes are disappointed and warn each other; these are walking and casual shoes despite how they look",
+      "Buyers who expected running shoes are disappointed and warn each other — these are walking and casual shoes despite looking sporty",
+      "Comfort is inconsistent against the styling: some find them bulky or below expectation",
       "Sole finishing criticised as cheap, one reviewer likening it to thermocol",
-      "Colour choice is very limited",
-      "Comfort is inconsistent — some find them bulky or below expectation despite the strong looks"
+      "Colour choice is very limited"
     ],
     "focal_pros": [
       "Soft cushioning with arch support that reviewers say covers walking, jogging and all-day wear",
       "Lightweight with a breathable mesh upper that keeps feet cool",
       "True to size, with a fit described as flattering rather than tight",
-      "Seen as excellent value for the price, especially when discounted"
+      "Repeatedly called excellent value, particularly when discounted"
     ],
     "focal_cons": [
-      "The fixed tongue design is a recurring criticism, making the shoe awkward to get on",
-      "Silver printed detailing looks likely to peel after a few wears",
-      "Only 44 ratings against rivals carrying thousands — Puma has almost no social proof in this band, which is itself the barrier"
+      "The fixed tongue design makes the shoe awkward to get on (one reviewer)",
+      "Silver printed detailing looks likely to peel after a few wears (one reviewer)",
+      "Only 44 ratings against rivals carrying thousands — the thin review base is itself a barrier to being chosen in this band"
     ]
   },
 
@@ -96,20 +97,19 @@
       "Cushioning described as soft yet supportive for all-day wear, on high-traction outsoles buyers trust",
       "Classic Converse silhouettes that go with everything and reliably attract compliments",
       "NEEMANS' premium lightweight knit construction is rated smart enough for party wear",
-      "True-to-size fits and materials that feel durable in hand"
+      "True-to-size fits with materials that feel durable in hand"
     ],
     "top_cons": [
-      "The knit slip-ons are narrow at the forefoot and hurt broad feet",
-      "Delivery and vendor experience draws criticism even where the product itself satisfied"
+      "The knit slip-ons are narrow at the forefoot and hurt broad feet"
     ],
     "focal_pros": [
       "Stylish, premium-looking design with colour combinations buyers call out unprompted",
       "True to size, lightweight and comfortable for all-day wear with good cushioning",
-      "Durable material quality, with repeat buyers reporting they have bought the same pair three times"
+      "Durable material quality — one buyer reports owning three pairs of the same shoe"
     ],
     "focal_cons": [
-      "Finishing quality is flagged as imperfect, excused only because of the price",
-      "Praise is broad but generic — comfort and looks, with none of the distinctive design storytelling that drives the licensed and character-led rivals leading this band"
+      "Finishing is flagged as imperfect, forgiven only because of the price",
+      "Praise is broad but generic — comfort and looks, without the distinctive design story that is driving the character-led rivals leading this band"
     ]
   },
 
@@ -118,25 +118,181 @@
       "Lightweight build is the single most repeated compliment — buyers wear them for gym, road runs and full days on their feet without fatigue",
       "Cushioning is described as responsive rather than mushy, giving noticeable energy return on road runs",
       "True to size and comfortable straight out of the box, with no break-in period needed",
-      "Premium finish (leather and mesh uppers) means the same pair works for training and casual wear",
+      "Premium finish (leather and mesh uppers) means one pair works for training and casual wear",
       "Breathable uppers that stay cool, and on the ASICS dry quickly after wet runs"
     ],
     "top_cons": [
-      "Packaging arrives damaged or poor even when buyers are happy with the shoe itself",
-      "The ASICS Noosa Tri 16 is a specialist fast-run shoe — reviewers say it resists slow jogging and pushes you forward",
-      "Recurring anxiety about authenticity when buying premium brands online"
+      "The ASICS Noosa Tri 16 is a specialist fast-run shoe — reviewers warn it resists slow jogging and pushes you forward",
+      "Genuine product complaints are rare in this band; the leaders are well liked, which makes them harder to displace"
     ],
     "focal_pros": [
-      "The Softride/SoftFoam+ ride is described as genuinely bouncy, and repeat buyers rate it more comfortable than the Skechers Arch Fit they switched from",
+      "The Softride/SoftFoam+ ride is described as genuinely bouncy, and switchers rate it more comfortable than the Skechers Arch Fit they came from",
       "Strong arch support — reviewers report 8+ hours on their feet without fatigue",
       "Light enough to help rather than hinder during cardio and running",
       "Trendy styling at a price buyers consider a bargain"
     ],
     "focal_cons": [
-      "The midsole is judged too soft, putting extra pressure on the legs over long walks or runs",
-      "Unusual vertical creasing across the toe box, which buyers flag as unlike the horizontal creasing they expect",
+      "The midsole is judged too soft, putting extra pressure on the legs over long walks or runs (one detailed reviewer)",
+      "Unusual vertical creasing across the toe box, unlike the horizontal creasing buyers expect (one reviewer)",
       "Laces run noticeably short",
-      "Reviewers position it for walking, casual wear and light jogging — explicitly not for intense running or high-performance training, with breathability called out as a weak point"
+      "Reviewers position it for walking, casual wear and light jogging — explicitly not for intense running, with breathability called out as a weak point"
+    ]
+  },
+
+  "casual_women|Mid-Range": {
+    "top_pros": [
+      "Memory-foam softness combined with genuinely light weight is what buyers keep returning to",
+      "The Souled Store's colour-blocked suede design is called the coolest pair reviewers own — a statement piece that still works daily",
+      "Comfortable across long hours, with padded collars and structured support noted repeatedly",
+      "Breathable knit uppers that reviewers say stop feet sweating in warm weather",
+      "Colours arrive exactly as pictured, and buyers rate the quality premium for the price"
+    ],
+    "top_cons": [
+      "Sizing runs large and loose at the heel — several reviewers advise going down a size",
+      "The knit slip-ons are narrow at the front, uncomfortable for broader feet"
+    ],
+    "focal_pros": [
+      "Cushioning and support described as excellent for daily wear and light workouts",
+      "Modern, sleek styling that buyers say works across outfits — one liked it enough to buy a second colour",
+      "Premium-feeling materials and build, repeatedly called a steal at the discounted price"
+    ],
+    "focal_cons": [
+      "One reviewer found it genuinely uncomfortable, directly contradicting the comfort claim — a notable dissent worth watching",
+      "Only 27 ratings against rivals with 950-1,500 — almost no social proof at the point of choice"
+    ]
+  },
+
+  "basketball_men|Entry-Level": {
+    "top_pros": [
+      "Traction on outdoor Indian cement courts is the standout strength, called excellent by multiple reviewers",
+      "High and mid-top silhouettes deliver real ankle support for court play",
+      "Priced far below Nike and Adidas and widely seen as strong value for beginners and intermediate players",
+      "Breathable mesh keeps feet cool, and the shoes are comfortable enough to wear casually all day",
+      "Durability can be excellent — one HRX buyer reports 1.5 years of hard use still holding up"
+    ],
+    "top_cons": [
+      "Structural failure on the Red Tape pair: lace straps broke within two practice sessions, with tearing at the ankle and yellowing at the toe — a second reviewer independently reports the same yellowing and tearing",
+      "Cushioning is below average for genuine basketball — fine for beginners, not for serious play",
+      "Visible glue at the joints and inconsistent quality control, particularly on HRX",
+      "Sizing runs small, with reviewers advising a size up",
+      "Noticeably heavier than ordinary trainers"
+    ],
+    "focal_pros": [],
+    "focal_cons": []
+  },
+
+  "football_men|Entry-Level": {
+    "top_pros": [
+      "Exceptional value is the defining theme — reviewers repeatedly call these boots a steal at the price",
+      "Comfort with no shoe bites, and ankle collars that reviewers say eliminate heel slippage during sprints",
+      "Lightweight with cushioning that holds up across a full match",
+      "Stud layout gives dependable grip, with buyers reporting good performance on both turf and softer ground",
+      "Durability proven over months of regular play, with several buying the same pair a second time"
+    ],
+    "top_cons": [
+      "Tight across the front, making them difficult to put on until they loosen up",
+      "Studs suit turf rather than hard or bare ground — reviewers caution against using them on unsuitable surfaces",
+      "The Decathlon pair needs a break-in period before it moulds to the foot"
+    ],
+    "focal_pros": [],
+    "focal_cons": [
+      "Puma's only entry here is an indoor shoe with 12 ratings and effectively no written review content, so there is nothing to read — the absence of customer evidence is itself the finding in this band"
+    ]
+  },
+
+  "walking_men|Premium": {
+    "top_pros": [
+      "Memory-foam cushioning described over and over as 'walking on clouds' — the single reason people buy in this band",
+      "A clear older-buyer and long-standing-hours use case: reviewers buy them for fathers, uncles and teachers, citing relief over long walks and hours on the feet",
+      "Slip-on convenience valued by buyers who do not want to bend down, and for travel and places where shoes come off",
+      "Lightweight with breathable mesh uppers and a flexible fit",
+      "True to size, easy to wash, and repeatedly described as worth every rupee"
+    ],
+    "top_cons": [
+      "Adhesive visible around the joints on one pair (one reviewer)",
+      "Product complaints are otherwise very rare here — Skechers is deeply entrenched on comfort, which is the real barrier to entry"
+    ],
+    "focal_pros": [
+      "Softride cushioning that reviewers say makes long walks effortless",
+      "Lightweight, with buyers of all ages — including parents — reporting comfort straight away",
+      "Colour and fit accurate to the listing, with quality rated highly",
+      "Seen as a genuine blend of comfort and style rather than purely functional"
+    ],
+    "focal_cons": [
+      "Colourways are described as looking a bit tacky unless carefully styled (one reviewer)",
+      "One buyer advises ordering a size up"
+    ]
+  },
+
+  "casual_women|Premium": {
+    "top_pros": [
+      "Iconic, timeless silhouettes — Superstar and Converse — that buyers say go with absolutely everything",
+      "Premium build quality and neat stitching noted repeatedly, with the quality judged worth the price",
+      "Comfortable cushioning for all-day wear and long walks",
+      "Lightweight and true to size, with colours accurate to the listing",
+      "Strong gifting appeal, with several bought as presents"
+    ],
+    "top_cons": [
+      "The Superstar II is a lifestyle shoe rather than a sports one — reviewers note it is less comfortable than performance sneakers",
+      "The New Balance 408's silver detailing can look cheap under bright light (one reviewer, who suggests stepping up to the 530)"
+    ],
+    "focal_pros": [
+      "Leather quality and Puma's SoftRide foam both singled out as genuinely premium",
+      "Classic white-sneaker versatility that reviewers call stylish, elegant and timeless",
+      "Accurate sizing against the size chart, neat stitching, and colour true to the pictures",
+      "Breathable fabric that buyers find comfortable for daily wear"
+    ],
+    "focal_cons": [
+      "Stiff out of the box — multiple reviewers say it is hard to wear initially and only gradually adapts to the foot",
+      "One buyer reported visible manufacturing defects, supported with photos — isolated, but a genuine quality flag",
+      "Needs upkeep to keep looking new, which buyers accept but do mention"
+    ]
+  },
+
+  "casual_men|Premium": {
+    "top_pros": [
+      "A premium, minimal, classy finish that reviewers say visibly elevates an outfit",
+      "Comfortable from day one with no break-in needed",
+      "Lightweight on the foot despite the premium construction",
+      "Material quality holding up well — one buyer reports ten months of use with the shoes still looking good",
+      "True to size, with colour and appearance matching the listing"
+    ],
+    "top_cons": [
+      "Narrow toe box — reviewers with wider feet advise ordering a size up, and one reports tightness at the toe even after ten months",
+      "Suede and similar finishes need care in wear, which buyers flag as a practical drawback"
+    ],
+    "focal_pros": [
+      "Premium look and build quality, with buyers calling the construction and finish excellent",
+      "Soft sole giving comfort straight away",
+      "Colour and styling well received, and buyers confirm the product is genuine"
+    ],
+    "focal_cons": [
+      "Reviews are short and generic — 'good quality', 'nice' — with none of the specific detail rivals attract, so there is little for a prospective buyer to latch onto",
+      "Only 37 ratings against rivals with 500-1,100, leaving almost no social proof in a band where buyers lean on reassurance"
+    ]
+  },
+
+  "running_men|Premium": {
+    "top_pros": [
+      "Max-cushion comfort and ArchFit-style arch support win this band — buyers cite relief over long wear",
+      "The ASICS GT-2000 13 delivers credible stability technology that overpronators say genuinely works, holding up over roughly 250 km",
+      "The Nike Free RN's sock-like knit and slip-on convenience is specifically loved",
+      "Lightweight yet durable, with buyers rating build quality highly at this price"
+    ],
+    "top_cons": [
+      "The Nike Free RN's narrow, tapered toe box keeps feet under constant pressure — one detailed reviewer preferred the older RN 11 and would not repurchase",
+      "Nike's knit upper attracts dust and discolours permanently, surviving washing",
+      "Energy return on the ASICS GT-2000 13 is rated only average against rivals such as the Nike Structure 26"
+    ],
+    "focal_pros": [
+      "NITRO cushioning is the headline — reviewers describe it as running in the clouds, and one calls the Magnify their favourite NITRO for cushioning",
+      "Good heel and ankle padding giving stability reviewers trust in a max-cushion shoe",
+      "Quality of materials repeatedly rated highly",
+      "Comfortable enough to double as an all-day office shoe"
+    ],
+    "focal_cons": [
+      "Runs large — a reviewer advises ordering one size down for the Magnify NITRO 3",
+      "Positioned by reviewers for relaxed running; one notes he is still waiting to see how the sole performs at faster paces"
     ]
   }
 }
