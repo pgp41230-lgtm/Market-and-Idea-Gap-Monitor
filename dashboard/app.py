@@ -10,8 +10,8 @@ sys.path.insert(0, str(PROJECT_ROOT / "scraper"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from config import FOCAL_BRAND
-from data_loader import (load_bundle, load_raw_reviews, load_review_analysis,
-                         run_completed_at)
+from data_loader import (data_fingerprint, load_bundle, load_raw_reviews,
+                         load_review_analysis)
 from theme import CSS
 
 import page_analytics
@@ -38,8 +38,10 @@ PAGE_SLUG = {
 SLUG_PAGE = {v: k for k, v in PAGE_SLUG.items()}
 
 
-@st.cache_data(show_spinner=False)
-def _bundle():
+@st.cache_data(show_spinner=False, ttl=900)
+def _bundle(fingerprint: str):
+    """`fingerprint` is not used inside — it is the cache key, so that changing the data
+    on disk invalidates this entry. The TTL is a backstop in case anything slips past it."""
     run_ts, scores, processed = load_bundle()
     if not run_ts:
         return None, None, None, {}, {}
@@ -74,7 +76,7 @@ def _run_refresh():
     st.rerun()
 
 
-run_ts, scores, processed, reviews, analysis = _bundle()
+run_ts, scores, processed, reviews, analysis = _bundle(data_fingerprint())
 
 # The nav is the first column of the page rather than Streamlit's sidebar: the sidebar
 # can be collapsed and then offers no dependable way back, which hides all navigation.
@@ -123,13 +125,14 @@ with main_col:
         st.info("Use **Refresh from Myntra** in the left panel to run the first scrape.")
         st.stop()
 
-    completed = run_completed_at(run_ts)
+    # Derive the shown time from the run id, which is stamped when the scrape starts.
+    # run_log's completed_at moves whenever the run is re-scored or annotated, so it
+    # drifts away from when the data was actually captured.
     when = run_ts.replace("_", " ")
-    if completed:
-        try:
-            when = datetime.fromisoformat(completed).strftime("%d %b %Y, %H:%M")
-        except ValueError:
-            pass
+    try:
+        when = datetime.strptime(run_ts, "%Y-%m-%d_%H%M").strftime("%d %b %Y, %H:%M")
+    except ValueError:
+        pass
     stamp = f'<div class="stamp"><i></i>Data last refreshed &nbsp;<b>{when}</b></div>'
 
     PAGES[nav].render(scores, processed, reviews, analysis, stamp)

@@ -125,6 +125,26 @@ def products_for(processed: dict, category: str, tier: str) -> pd.DataFrame:
     return pd.DataFrame()
 
 
+def data_fingerprint() -> str:
+    """A cheap signature of the data on disk, used as a cache key.
+
+    Streamlit only clears @st.cache_data when the process restarts, not when the script
+    reruns. On a hosted deploy the code updates on every push while the process lives on,
+    so a cache with no data-dependent key keeps serving whatever was loaded at first boot
+    — the app showed refreshed wording next to stale numbers. Keying on file names and
+    sizes means any change to the data busts the cache. Sizes rather than mtimes, because
+    a git clone stamps every file with the same checkout time.
+    """
+    parts = []
+    for folder, pattern in ((SCORES, "scores_*.json"), (REVIEWS, "analysis_*.json")):
+        for p in sorted(folder.glob(pattern)):
+            try:
+                parts.append(f"{p.name}:{p.stat().st_size}")
+            except OSError:
+                continue
+    return "|".join(parts)
+
+
 def load_bundle():
     run_ts = latest_run_ts()
     if not run_ts:
