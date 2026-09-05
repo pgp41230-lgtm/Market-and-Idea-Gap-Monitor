@@ -57,47 +57,43 @@ def render(scores, processed, reviews, analysis, stamp_html):
 
     # ---- methodology ----
     st.markdown(
-        '<div class="method"><span class="mlabel">How this was built</span>'
-        'Each <b>sub-category</b> (a category at one price band) is searched on Myntra with the '
+        '<div class="method"><span class="mlabel">How this was built</span><ul>'
+        '<li>Each <b>sub-category</b> (a category at one price band) is searched on Myntra with the '
         '<b>price slider set to that band</b> and results <b>sorted by Popularity</b>; the '
-        '<b>first 5 result pages</b> are captured. Colourways of the same shoe are merged into one '
-        'product so a brand with eight colours of one model is not counted as eight products. '
-        f'<b>Demand</b> is proxied by total customer ratings in the band, and <b>{FOCAL}\'s presence</b> '
-        f'by {FOCAL}\'s share of those ratings — ratings are a public stand-in for sales, which Myntra '
-        'does not publish. Bands with under 50 listings are marked <i>thin data</i> and excluded from '
-        'ranking. Review themes are read from real review text on each band\'s best-selling products.'
-        '</div>', unsafe_allow_html=True)
+        '<b>first 5 result pages</b> are captured.</li>'
+        '<li>Multiple colour-option listings of the same shoe are merged into one product, so a brand '
+        'with eight colours of one model is not counted as eight products.</li>'
+        f'<li><b>Demand</b> for the sub-category is proxied by total customer ratings in the band, and '
+        f'<b>{FOCAL}\'s presence</b> by {FOCAL}\'s share of those ratings. Myntra does not publish sales '
+        'figures, so ratings are taken as a good proxy.</li>'
+        '<li>Bands with under 50 listings in a sub-category are marked <i>thin data</i>, highlighting '
+        'low product listings.</li>'
+        '<li>Review themes are read from real review text on each band\'s best-selling products.</li>'
+        '</ul></div>', unsafe_allow_html=True)
     st.markdown('<div style="height:14px"></div>', unsafe_allow_html=True)
 
     # ---- tiles ----
     t1, t2, t3, t4 = st.columns(4)
     t1.markdown(f'<div class="tile"><div class="cap">Categories considered'
-                + info('A <b>category</b> is one shoe type for one gender — Running Men, Walking Women '
-                       'and so on. They are kept separate because buying behaviour, price expectations '
-                       'and the competitive set differ sharply between them, so averaging across genders '
-                       'would hide exactly the gaps we are hunting for.')
+                + info('A <b>category</b> is one shoe use-case type for one gender — Running Men, '
+                       'Running Women, Basketball Men, Basketball Women and so on.')
                 + f'</div><div class="big">{summary["n_categories"]}</div>'
                 f'<div class="sub">gender-split shoe categories</div></div>', unsafe_allow_html=True)
     t2.markdown(f'<div class="tile"><div class="cap">Sub-categories'
                 + info('A <b>sub-category</b> is a category at one price band — for example Running Men '
-                       'at Rs 3,500-8,000. This is the unit of analysis, because a brand can be strong '
-                       'at entry price and absent at premium within the same category. Price bands come '
-                       'from the supplied tier table, so they reflect real market structure rather than '
-                       'arbitrary cut-offs.')
+                       'at Rs 3,500-8,000.')
                 + f'</div><div class="big">{summary["n_subcategories"]}</div>'
                 f'<div class="sub">category × price band</div></div>', unsafe_allow_html=True)
     t3.markdown(f'<div class="tile a"><div class="cap">Opportunities identified'
-                + info(f'Sub-categories where <b>demand is above the median</b> but <b>{FOCAL}\'s share '
-                       f'is below it</b> — proven customer demand that {FOCAL} is not capturing. These '
-                       'are the "grow here" cells: the market has already shown it will buy in this '
-                       'band, so the barrier is presence and proposition rather than category demand.')
+                + info('Sub-categories where <b>demand for the sub-category is above the median</b> but '
+                       f'<b>{FOCAL}\'s share is below it</b>. These are the "grow here" cells.')
                 + f'</div><div class="big">{summary["n_opportunities"]}</div>'
                 f'<div class="sub">high demand, thin {FOCAL} presence</div></div>', unsafe_allow_html=True)
     t4.markdown(f'<div class="tile f"><div class="cap">{FOCAL} overall share'
-                + info(f'{FOCAL}\'s share of <b>all customer ratings</b> captured across every '
+                + info(f'{FOCAL}\'s share of <b>overall customer ratings</b> captured across every '
                        'sub-category. Ratings are used as the demand proxy throughout because Myntra '
                        'publishes no sales figures; a rating is left by a verified buyer, so it tracks '
-                       'purchases with a lag. Read it as relative traction, not market share in units.',
+                       'purchases. Read it as relative traction, not market share in units.',
                        align="right")
                 + f'</div><div class="big">{fmt_pct(summary["focal_overall_share"])}</div>'
                 f'<div class="sub">of all ratings captured</div></div>', unsafe_allow_html=True)
@@ -110,13 +106,11 @@ def render(scores, processed, reviews, analysis, stamp_html):
     matrix = (
         '<div class="panel">'
         '<div class="ptitle">Sub-Category Wise Prioritization Matrix'
-        + info('A classic two-by-two. The <b>vertical axis</b> is category demand — total customer '
-               'ratings in the band. The <b>horizontal axis</b> is how much of that demand '
-               f'{FOCAL} already holds. Both axes are split at the <b>median across all '
-               'sub-categories</b>, so each cell is judged against this market rather than an '
-               'arbitrary threshold. Top-left is the prize: demand is proven but '
-               f'{FOCAL} is barely there. Top-right is worth defending, bottom-right worth '
-               'holding cheaply, and bottom-left can wait.')
+        + info('A classic two-by-two. The <b>vertical axis</b> is category demand, for which total '
+               'customer ratings in that sub-category is taken as the proxy. The <b>horizontal axis</b> '
+               f'is how much of that demand {FOCAL} already holds — barely present, or strong presence. '
+               'Both axes are split at the <b>median across all sub-categories</b>, so each cell is '
+               'judged against the other sub-category markets rather than an arbitrary threshold.')
         + '</div>'
         f'<div class="psub">Every sub-category placed by how much demand it carries and how much '
         f'of that demand {FOCAL} currently holds. The amber cell is where to grow.</div>'
@@ -144,12 +138,11 @@ def render(scores, processed, reviews, analysis, stamp_html):
     st.markdown('<div style="height:8px"></div>', unsafe_allow_html=True)
     st.markdown('<div class="ptitle">Prioritised opportunities'
                 + info('Only the "grow here" sub-categories are ranked, by <b>demand × (1 − '
-                       f'{FOCAL}\'s share)</b>. The first term is the size of the market; the second '
-                       f'is how much of it is still unclaimed by {FOCAL}. Multiplying them favours '
-                       'big markets where the brand is genuinely absent over small ones or ones it '
-                       'already part-owns. Deliberately only these two factors, so the ranking stays '
-                       'explainable — competitive intensity is shown alongside as context rather than '
-                       'folded into the score, since a crowded market is not automatically a worse bet.')
+                       f'{FOCAL}\'s share)</b>. The first term is the size of the market; the second is '
+                       f'how much of it is still unclaimed by {FOCAL}. Multiplying them favours big '
+                       'markets where the brand is genuinely absent over small ones, or over ones where '
+                       f'{FOCAL} is already present with a substantial share even though it sits below '
+                       'the median.')
                 + '</div>'
                 f'<div class="psub">Ranked by the size of the prize — how much demand sits in the band '
                 f'weighted by how much room {FOCAL} has to gain. Open any one for the full insight.</div>',

@@ -140,7 +140,10 @@ div[data-testid="stColumn"]:has(.navcol-marker) {{
 }}
 .method b {{ color:{C["ink"]}; font-weight:700; }}
 .method .mlabel {{ font-size:.63rem; letter-spacing:.11em; text-transform:uppercase;
-                   color:{C["muted"]}; font-weight:700; display:block; margin-bottom:5px; }}
+                   color:{C["muted"]}; font-weight:700; display:block; margin-bottom:7px; }}
+.method ul {{ margin:0; padding-left:18px; }}
+.method li {{ margin-bottom:5px; }}
+.method li:last-child {{ margin-bottom:0; }}
 
 .navlabel {{ color:#66738A !important; font-size:.62rem; letter-spacing:.13em;
              text-transform:uppercase; font-weight:700; padding:14px 6px 6px; }}
