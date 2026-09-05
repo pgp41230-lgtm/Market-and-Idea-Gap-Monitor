@@ -56,19 +56,22 @@ def render(scores, processed, reviews, analysis, stamp_html):
     st.markdown(stamp_html, unsafe_allow_html=True)
 
     # ---- methodology ----
+    # One bold idea per bullet, so skimming just the bold reads as the method's spine:
+    # price slider set to that band -> merged into one product -> total customer ratings /
+    # Puma's share of those ratings -> thin data -> real review text.
     st.markdown(
         '<div class="method"><span class="mlabel">How this was built</span><ul>'
-        '<li>Each <b>sub-category</b> (a category at one price band) is searched on Myntra with the '
-        '<b>price slider set to that band</b> and results <b>sorted by Popularity</b>; the '
-        '<b>first 5 result pages</b> are captured.</li>'
-        '<li>Multiple colour-option listings of the same shoe are merged into one product, so a brand '
-        'with eight colours of one model is not counted as eight products.</li>'
-        f'<li><b>Demand</b> for the sub-category is proxied by total customer ratings in the band, and '
-        f'<b>{FOCAL}\'s presence</b> by {FOCAL}\'s share of those ratings. Myntra does not publish sales '
+        '<li>Each sub-category is searched on Myntra with the <b>price slider set to that band</b> '
+        'and results sorted by Popularity; the first 5 result pages are captured.</li>'
+        '<li>Multiple colour-option listings of the same shoe are <b>merged into one product</b>, so a '
+        'brand with eight colours of one model is not counted as eight products.</li>'
+        f'<li>Demand for the sub-category is proxied by <b>total customer ratings</b> in the band, and '
+        f'{FOCAL}\'s presence by <b>{FOCAL}\'s share of those ratings</b>. Myntra does not publish sales '
         'figures, so ratings are taken as a good proxy.</li>'
-        '<li>Bands with under 50 listings in a sub-category are marked <i>thin data</i>, highlighting '
+        '<li>Bands with under 50 listings in a sub-category are marked <b>thin data</b>, highlighting '
         'low product listings.</li>'
-        '<li>Review themes are read from real review text on each band\'s best-selling products.</li>'
+        '<li>Review themes are read from <b>real review text</b> on each band\'s best-selling '
+        'products.</li>'
         '</ul></div>', unsafe_allow_html=True)
     st.markdown('<div style="height:14px"></div>', unsafe_allow_html=True)
 
