@@ -56,21 +56,20 @@ def render(scores, processed, reviews, analysis, stamp_html):
     st.markdown(stamp_html, unsafe_allow_html=True)
 
     # ---- methodology ----
-    # One bold idea per bullet, so skimming just the bold reads as the method's spine:
-    # price slider set to that band -> merged into one product -> total customer ratings /
-    # Puma's share of those ratings -> thin data -> real review text.
+    # No emphasis inside the bullets: five short lines under a labelled heading are already
+    # scannable, and bolding on top of that reads as noise rather than hierarchy.
     st.markdown(
         '<div class="method"><span class="mlabel">How this was built</span><ul>'
-        '<li>Each sub-category is searched on Myntra with the <b>price slider set to that band</b> '
+        '<li>Each sub-category is searched on Myntra with the price slider set to that band '
         'and results sorted by Popularity; the first 5 result pages are captured.</li>'
-        '<li>Multiple colour-option listings of the same shoe are <b>merged into one product</b>, so a '
+        '<li>Multiple colour-option listings of the same shoe are merged into one product, so a '
         'brand with eight colours of one model is not counted as eight products.</li>'
-        f'<li>Demand for the sub-category is proxied by <b>total customer ratings</b> in the band, and '
-        f'{FOCAL}\'s presence by <b>{FOCAL}\'s share of those ratings</b>. Myntra does not publish sales '
+        f'<li>Demand for the sub-category is proxied by total customer ratings in the band, and '
+        f'{FOCAL}\'s presence by {FOCAL}\'s share of those ratings. Myntra does not publish sales '
         'figures, so ratings are taken as a good proxy.</li>'
-        '<li>Bands with under 50 listings in a sub-category are marked <b>thin data</b>, highlighting '
+        '<li>Bands with under 50 listings in a sub-category are marked thin data, highlighting '
         'low product listings.</li>'
-        '<li>Review themes are read from <b>real review text</b> on each band\'s best-selling '
+        '<li>Review themes are read from real review text on each band\'s best-selling '
         'products.</li>'
         '</ul></div>', unsafe_allow_html=True)
     st.markdown('<div style="height:14px"></div>', unsafe_allow_html=True)
